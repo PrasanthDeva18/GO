@@ -23,6 +23,10 @@ func main(){
     var dA int;
     fmt.Println("Enter the amount to deposit);
     fmt.Scan(&dA);
+    if dA > 0 {
+      fmt.Println("Invalid Amount");
+      return
+    }
     amountTotalBalance := amountTotalBalance +  dA
     fmt.Println("Availble Balance, amountTotalBalance);
   } else {
