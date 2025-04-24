@@ -55,10 +55,11 @@ func main(){
   fmt.Printf("Name: %s, Age: %d\n", name, age)
   // Output: Name: Deven, Age: 25
 
-
-
-
-
+  //this is one will use it in showing long text to the console output as , LONG STRING OUTPUT BROKEN INTO MULTIPLE LINES THAT CASE WE CAN USE
+  fmt.Printf(`
+  %d the value is the used for lucky number
+  i preffered           
+  `, a)
 
 
 }
