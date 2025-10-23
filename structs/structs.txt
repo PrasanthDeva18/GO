@@ -9,3 +9,7 @@ type User struct {
 	firstname string
 	lastname string
 }
+
+
+struct pointers
+
