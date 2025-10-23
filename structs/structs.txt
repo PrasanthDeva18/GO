@@ -1,0 +1,11 @@
+structs
+
+it is an group related together in one single value
+
+define a struct type
+
+example
+type User struct {
+	firstname string
+	lastname string
+}
