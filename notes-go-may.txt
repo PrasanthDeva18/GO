@@ -1,0 +1,570 @@
+Go is a programming language
+
+
+package main
+import “fmt”
+
+func main(){
+	fmt.Print(“Hello World”);
+}
+
+go run filename.go
+
+Topic to cover:-
+
+Array, Slices, Maps
+Structs
+Packages
+Concurrency
+Function
+Interfaces
+Pointers
+
+Go Essentials:
+
+package main  
+import “fmt”   <- its available itself in go, 
+
+func main(){          <- 
+	fmt.Print(“Hello World”); 
+}
+
+
+In print function passing value must be in double quotes, single quotes its doesn’t allow.
+And backlit also working ``.
+
+Every go code we need to configure the package in the first line of the code.
+
+Whatever you organize the code with package main.
+We are getting a fmt package from go.
+
+In go, wee can use any package name 
+
+Package name (any)
+Package main is the entry point of the application
+
+Go build to create an executable file.
+
+One module consist of many packages
+
+Modules:-
+
+Go mod init -> this will convert this project into a module.
+Go mod init example.com/first-app  -> created the module
+
+Go build
+./first-app 
+
+In windows just click the executable file to run ,
+
+In mac and linux to run the app build file you want to use ./appname ,
+
+If we are not using package main, its bit difficult build and run the file, build desnt recognize the build file
+
+func main(){
+}
+
+In the go, I have two go files one first.go and second.go, if the both file has refers to the same package in the same level block, you must be given a main in any one file.
+
+first .go
+
+package main
+Import “fmt”
+
+func main(){
+}
+
+second.go 
+
+Throwing an error if we use package main second file as well, throws already declared in block
+
+
+
+
+
+Key Components:-
+
+Values and types:-
+
+Var keyword for variables.
+
+In go, is statically typed language,
+
+
+Used for conversion.
+Int 
+float64 
+
+Math is the package in go,
+
+Import “math”
+
+math.Pow(para1, para2)
+
+
+
+
+Basic types
+
+Int, float64, string, bool
+
+Uint -> non negative integers,
+Int32 32 bit signed integers last number is 1234567890
+Rune is use to deal with unicode characters
+Uint32 -> 32 bit unsigned integer 0  to 4294967295
+int 64 bit signed integer 
+
+Null values
+
+Int -> 0
+float 64 -> 0.0
+String => “”
+Bool => false
+
+Two types of outputting value 
+
+Print and println
+Print is output the value, if the two print are there, its print single line
+Print is print on new line
+
+
+
+:= shortcut is provided by go syntax, its used inferred the type to variable automatically
+
+Example 
+
+Previous:-
+
+var a = 10; // type is inferred
+var b int = 20; type is int
+
+Now using := 
+
+If the we using := , do not use var keyword
+
+c := 30 //type is inferred
+
+In the Variable Declaration you must given a type of the variable.
+
+var name string
+
+
+Instead of declare multiline variable declaration, use a single line 
+
+Prev:-
+var a = 10
+Var b =20
+
+Now:-
+var a, b int = 10,20
+
+Note: give a multiple type values in single line
+
+var a,b = 10, “Prasanth”
+
+In single line variable declaration, you cannot add a type one after one each variable. It's a bit difficult for us.
+
+var a int, b string = 10, “Pr”; //its an wrong throws an error
+so,
+var a , b int = 10, 20 //that makes sense.
+
+In := use this also to achieve a multiple variable value assign in one line
+
+a,b := 10,20
+
+
+// const is another keyword used when we didn't change value it should be constant, that time will use 
+const a = 10;
+
+Difference between var and :=
+Var used in inside and outside of function
+Used only in inside function
+Variable declaration and initialization done separately
+Variable declaration and initialization cannot done separately
+
+
+
+Difference between var and const
+
+
+Feature
+var
+const
+Mutability
+Mutable (can be changed)
+Immutable (cannot be changed)
+Initialization
+Optional
+Mandatory
+Value
+Can be dynamic (runtime)
+Must be static (compile-time)
+Use case
+Dynamic data
+Fixed values
+
+
+
+Fetching user input:-
+var a: string;
+fmt.Scan(&a);
+fmt.Scan(“%s”,&a);
+Scan is not working in constant variables.
+
+
+
+
+
+var a int;
+fmt,Print(“Enter a number”);
+fmt.Scan(&a);
+
+Limitation:-
+
+In scan, allow only single value of string, multi value is bit tricky.
+
+
+Formatting strings:-
+
+fmt.Printf if we are using this, we need to mention format specifier.
+fmt.Printf(“%v”, a);
+
+
+Formatting float in strings
+	
+
+
+Function
+Adds Spaces
+Adds Newline
+Uses Format Verbs
+Returns String
+fmt.Sprint
+❌ No
+❌ No
+❌ No
+✅ Yes
+fmt.Sprintf
+❌ No
+❌ No
+✅ Yes
+✅ Yes
+fmt.Sprintln
+✅ Yes
+✅ Yes
+❌ No
+✅ Yes
+
+
+
+
+
+Function
+Type
+Adds Space
+Adds Newline
+Uses Format Verbs
+Example Usage
+fmt.Scan
+Input
+✅
+❌ (stops at newline)
+❌
+Read multiple values
+fmt.Scanln
+Input
+✅
+✅
+❌
+Read one line only
+fmt.Scanf
+Input
+❌
+❌
+✅
+Format-controlled input
+fmt.Print
+Output
+❌
+❌
+❌
+Basic printing
+fmt.Println
+Output
+✅
+✅
+❌
+Print with newline
+fmt.Printf
+Output
+❌
+❌ (unless \n used)
+✅
+Format-controlled output
+
+
+
+
+
+Feature
+fmt.Print / Println / Printf
+fmt.Sprint / Sprintln / Sprintf
+Prints to console
+✅ Yes
+❌ No (unless printed later)
+Returns a string
+❌ No
+✅ Yes
+Useful for logging, APIs
+❌ No
+✅ Yes
+Needs fmt.Print to show output
+Already prints
+Yes, needs manual printing
+
+
+
+
+
+
+Specifier
+Description
+%v
+Default format (prints value as-is)
+%+v
+Adds field names (for structs)
+%#v
+Go syntax representation
+%T
+Type of the value
+%%
+A literal percent sign %
+
+
+
+
+
+
+
+Specifier
+Description
+Example Output
+%d
+Decimal
+123
+%b
+Binary
+1111011
+%o
+Octal
+173
+%x
+Hex (lowercase)
+7b
+%X
+Hex (uppercase)
+7B
+%c
+Unicode character
+A (if 65)
+
+
+
+
+Specifier
+Description
+Example Output
+%f
+Decimal (no exponent)
+123.456000
+%e
+Scientific notation (e)
+1.234560e+02
+%E
+Scientific notation (E)
+1.234560E+02
+%g
+Shortest representation %f or %e
+
+
+%G
+Like %g but with uppercase
+
+
+
+
+
+
+Specifier
+Description
+Example Output
+%s
+Plain string
+"hello"
+%q
+Quoted string (escaped)
+"\"hello\""
+%x
+Hex of bytes (lowercase)
+68656c6c6f
+%X
+Hex of bytes (uppercase)
+48656C6C6F
+
+
+
+
+
+Specifier
+Description
+%p
+Pointer address (hex)
+
+
+
+
+Functions in Go:-
+
+https://cs.opensource.google/go/go - go official code link
+
+How to create a custom function in go?
+
+
+//syntax of function
+func functionname(parameter type){
+
+}
+
+Return values and variable scopes
+
+Return value in function
+
+func functionname(){
+return 10
+}
+
+func functionname()(int, int){
+a:=10
+b:=20
+Return a,b;
+}
+
+
+In go,we placed the variable outside the function, to access all anywhere within the file
+
+
+
+Alternative return value syntax(mostly its make confusing state due to value change here )
+func functionname()(a int, b int){
+a = 10
+b = 20
+return a, b
+}
+
+Control Structure :-
+
+Building a banking application:
+
+if condition {
+   // Code to be executed if the condition is true
+}
+
+if condition {
+
+}
+else if condition {
+
+}
+else {
+
+}
+
+Switch Statements 
+
+switch expression {
+	case condition or value:
+	//Statement
+	default :
+}
+
+
+
+
+
+
+
+
+lOOPS:-
+
+for i:=0; i < 2; i++ {
+
+}
+
+//Runs infinite time
+for {
+
+}
+
+File Handling in GO:-
+
+Write a file in go
+
+//0644 basic file permission
+
+import “os”
+func writeBalanceTofile(b int){
+	balanceText := fmt.Sprint(b);
+	// in writefile funct 1st parameter as filename, second is convert to string to bytes, permissions
+	os.WriteFile(“balance.txt”, []byte(b), 0644)
+}
+
+Reading File in GO:-
+
+func getBalance(){
+data , _ := os.ReadFile(“balance.txt”) // it will return two values data //and err
+
+//_ is the special, its used for when you know the value but you doesnt //need right now that time you can give _
+}
+
+Package:-
+//Strconv is used to convert string to respective value
+
+var a = “10”
+strconv.parseInt(a)
+strconv.parseFloat(a, 64) // this is also return two data and err
+
+Nil is an special value in go used for absence of value 
+\
+
+
+
+Packages -> 
+splitting code across multiple files
+splitting files across multiple packages.
+import and use a custom packages
+
+Split code across multiple files
+
+
+If you create a file demo 1 and demo 2 as go, it will if you configured package main, that will be belongs to same package , so you can use the function or code across file easily but not imports
+
+
+For creation of each package, we need to place it not in same level, please it in root level
+
+
+Exporting the package in go you just name it the function name First letter capital
+
+Using third Party Packages:-
+Go random data -> this is used for random data package
+go get packagepath
+
+While package is installed you can able to see the package acquire in go mod
+
+go get -  install the existing dependencies
+
+
+
+
+Pointers
+What are the pointers?
+Pointers are used to store the address of the value

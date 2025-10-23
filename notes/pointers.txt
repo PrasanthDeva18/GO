@@ -1,0 +1,34 @@
+Pointer in GO
+pointers are used to store variables address
+
+Why we use pointers?
+Avoid unneccessary value copies
+directy mutate values
+
+Avoid unneccessary value copies
+
+by default, go creates a copy when passing values to function
+
+for very large and complex values this may take up too much memory space unneccessarily
+
+how ->
+
+in go program, pass the variable to the function arguments, go creates the values of that variable
+garbage collector removed unused values
+
+with pointers only one value is stored in memory
+
+
+pass a pointer intead of a value to a function
+the function can then directly edit the underlying value - no return value is required
+can lead to less code
+
+in variable default value is there it will be called as null value
+
+for the pointers it was call it as nil value -> nill value means absence of address value.
+
+
+in go, we cant able to perform pointer arithmetic calculation
+
+
+
