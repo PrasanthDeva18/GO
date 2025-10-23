@@ -13,3 +13,30 @@ type User struct {
 
 struct pointers
 
+methods in structs
+
+//function declaration
+func (paraname structname as type ) outPutUser {
+
+
+}
+
+(paraname structname as type ) // reciever arguments
+
+// func call
+appUser.outPutUser()
+
+| Type                 | Syntax      | Meaning                         | When to Use                                        |
+| -------------------- | ----------- | ------------------------------- | -------------------------------------------------- |
+| **Value Receiver**   | `(u User)`  | Works on a *copy* of the struct | When you don’t need to modify the original data    |
+| **Pointer Receiver** | `(u *User)` | Works on the *original* struct  | When you want to modify the data inside the method |
+
+
+| Purpose                                   | Explanation                                                                   |
+| ----------------------------------------- | ----------------------------------------------------------------------------- |
+| 🧱 **Attach behavior to types**           | Methods define *what actions* your struct can perform.                        |
+| 🔄 **Encapsulate logic**                  | Keeps related data (struct fields) and logic (methods) together.              |
+| 🧍 **Make the code readable & organized** | Instead of passing the same struct around, methods use the receiver directly. |
+| ⚙️ **Support interfaces**                 | Go interfaces are built entirely on methods — receivers make that possible.   |
+| ✏️ **Modify or read struct data easily**  | Pointer receivers can mutate the actual struct values.                        |
+
