@@ -40,3 +40,30 @@ appUser.outPutUser()
 | ⚙️ **Support interfaces**                 | Go interfaces are built entirely on methods — receivers make that possible.   |
 | ✏️ **Modify or read struct data easily**  | Pointer receivers can mutate the actual struct values.                        |
 
+
+
+
+
+
+
+
+
+
+Export in Go
+
+
+package somewhere
+
+type User struct {
+	Firstname name
+}
+
+
+package main
+
+var appUser User.user;
+
+appUser = User.user {
+	Firstname : "prasanth"
+}
+
