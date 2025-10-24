@@ -67,3 +67,25 @@ appUser = User.user {
 	Firstname : "prasanth"
 }
 
+creator or constructor function
+
+func newUser(ufirstname string) User {
+	return User {
+		firstname : ufirstname,
+	}
+}
+
+func newUser(ufirstname string) *User {
+	return &User {
+		firstname : ufirstname,
+	}
+}
+
+func main() {
+
+	ufirstname := 10
+
+	var a User
+
+	a = newUser(ufirstname)
+}
