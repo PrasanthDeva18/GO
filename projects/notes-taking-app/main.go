@@ -24,6 +24,12 @@ func main() {
 	}
 
 	notesData.PrintOutPut()
+
+	err = notesData.SaveJsonData()
+
+	if err != nil {
+		fmt.Println(err)
+	}
 }
 
 func getUserInput(propmt string) string {
