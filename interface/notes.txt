@@ -1,0 +1,67 @@
+Interfaces - Go defines a set of method signatures
+
+interfaces are not defining the logic of method 
+
+syntax
+
+type -keyword
+interfacename - name
+interface - keyword
+
+type interfacename interface {
+ methodname(type parameter) returntype
+}
+
+
+type InterfaceName interface {
+    MethodName(parameter Type) ReturnType
+}
+
+✅ No implements keyword needed.
+✅ No inheritance.
+✅ No boilerplate.
+
+| Reason              | Explanation                                       | Example                                            |
+| ------------------- | ------------------------------------------------- | -------------------------------------------------- |
+| 🔄 **Abstraction**  | You focus on behavior, not implementation         | `Shape` → `Circle`, `Rectangle` both can be Shapes |
+| 🧱 **Polymorphism** | Write generic code that works with multiple types | `printArea(s Shape)` works for all shapes          |
+| 🧪 **Testability**  | Makes mocking easy in tests                       | e.g., `Database` interface for fake DB in tests    |
+| 🔌 **Decoupling**   | Reduces dependency between components             | Swap real & mock services easily                   |
+
+In Go, an interface defines a contract (method set).
+Any type that provides those methods automatically implements that contract — without saying so explicitly.
+
+package main
+
+import "fmt"
+
+type Shape interface {
+	Area() float64
+}
+
+type Circle struct {
+	radius float64
+}
+type Rectangle struct {
+	width, height float64
+}
+
+func (c Circle) Area() float64 {
+	return 3.14 * c.radius * c.radius
+}
+
+func (r Rectangle) Area() float64 {
+	return r.width * r.height
+}
+
+func printArea(s Shape) {
+	fmt.Println("Area:", s.Area())
+}
+
+func main() {
+	c := Circle{radius: 5}
+	r := Rectangle{width: 4, height: 6}
+
+	printArea(c)
+	printArea(r)
+}
